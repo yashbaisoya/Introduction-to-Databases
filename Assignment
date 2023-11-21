@@ -1,0 +1,146 @@
+create database company;
+use company;
+create table student(
+stdid int not null unique,
+stdname varchar(50),
+sex varchar(50),
+percentage int(3),
+class int(20),
+sec varchar(2),
+stream varchar(10),
+dob int 
+);
+ 
+insert into student
+values(1001,'akshra agarwal','female',70,11,'A','science',10/11/1996);
+insert into student
+values(1002,'anjani sharma','female',75,11,'A','commerce',10/11/1996);
+insert into student
+values(1003,'anshul saxena','male',78,11,'A','commerce',10/11/1996);
+insert into student
+values(1004,'aishwarya singh','female',79,11,'A','commerce',10/11/1996);
+insert into student
+values(1005,'akriti saxena','female',76,11,'A','commerce',10/11/1996);
+insert into student
+values(1006,'khushi agarwal','female',77,11,'A','commerce',10/11/1996);
+insert into student
+values(1007,'maahi agarwal','female',74,11,'A','science',10/11/1996);
+insert into student
+values(1008,'mitali gupta','female',78,12,'A','science',10/11/1996);
+insert into student
+values(1009,'nikunj agarwal','male',58,12,'A','science',10/11/1996);
+insert into student
+values(1010,'parkhi bhadana','female',59,12,'A','commerce',10/11/1996);
+insert into student
+values(1011,'prakhar tiwari','male',43,12,'A','science',10/11/1996);
+insert into student
+values(1012,'raghav gangwar','male',58,12,'A','commerce',10/11/1996);
+insert into student
+values(1013,'sahil saraswat','male',57,12,'A','commerce',10/11/1996);
+insert into student
+values(1014,'swati mishra','female',98,11,'A','science',10/11/1996);
+insert into student
+values(1015,'harsh agarwal','male',58,11,'B','science',10/11/1996);
+insert into student
+values(1016,'harshit kumar','male',98,11,'B','science',10/11/1996);
+insert into student
+values(1017,'jaahnvi kapoor','male',65,11,'B','science',10/11/1996);
+insert into student
+values(1018,'stuti mishra','male',66,11,'C','commerce',10/11/1996);
+insert into student
+values(1019,'suryansh kumar agarwal','male',85,11,'C','commerce',10/11/1996);
+insert into student
+values(1020,'tani rastogi','female',75,12,'C','commerce',10/11/1996);
+insert into student
+values(1021,'tanisha gupta','male',55,12,'C','science',10/11/1996);
+insert into student
+values(1022,'tanmay agarwal','male',57,11,'C','commerce',10/11/1996);
+insert into student
+values(1023,'yash saxena','male',79,11,'C','science',10/11/1996);
+insert into student
+values(1024,'yesh dubey','male',85,12,'C','commerce',10/11/1996);	
+
+
+select * from student;
+select stdname,dob from student;
+select * from student
+where percentage >= 80;
+select stdname,stream,percentage from student
+where percentage >= 80;
+select * from student
+where percentage > 75 and stream="science";
+
+
+alter table student
+add teacherid varchar(20);
+select * from student;
+desc student;
+alter table student
+modify teacherid int;
+desc student;
+
+
+alter table student
+drop column teacherid;
+select stdname,percentage from student
+where percentage-5;
+select stdname from student
+where stream!="science";
+select stdname,percentage from student
+where percentage between 60 and 80;
+
+
+select * from student where stdname like'G_';
+select * from student where stdname='G';
+select * from student where stdname like'G%';
+select * from student where stdname='%G%';
+select distinct stream from student;
+select stdname,sex,stream from student where percentage between 70 and 80;
+
+
+
+create database company;
+use company;
+create table empl(
+empno int not null unique,
+ename varchar(50),
+job varchar(10),
+mgr int,
+hiredate int,
+salary int,
+comm int,
+deptno int
+);
+
+insert into empl
+values(8369,'smith','clerk',8902,1990-12-18,800,null,20);
+insert into empl
+values(8499,'anya','salesman',8698,1991-02-20,1600,300,30);
+insert into empl
+values(8521,'seth','salesman',8698,1991-02-22,1250,500,30);
+insert into empl
+values(8566,'mahadevan','manager',8839,1991-04-02,2985,null,20);
+insert into empl
+values(8654,'momin','salesman',8698,1991-09-28,1250,1400,30);
+insert into empl
+values(8698,'bina','manager',8839,1991-05-1,2850,null,30);
+insert into empl
+values(8882,'shivansh','manager',8839,1991-06-09,2450,null,10);
+insert into empl
+values(8888,'scott','analyst',8566,1992-12-09,3000,null,20);
+insert into empl
+values(8839,'amir','president',null,1991-11-18,5000,null,10);
+insert into empl
+values(8844,'kuldeep','salesman',8698,1991-09-08,1500,0,30);
+
+
+select ename,salary from empl
+where salary>=2200;
+select * from empl
+where comm=null;
+select ename,salary from empl
+where salary not between 2500 and 400;
+select ename,job,salary from empl
+where mgr=null;
+
+
